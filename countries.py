@@ -60,7 +60,7 @@ for r, country in enumerate(countries):
 		# Format area number to use comma for decimal places and point for thousand separator.
 		locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 		area = locale.currency(country['area'], grouping=True, symbol=False)
-		ws.cell(row=r+3, column=3, value=area)
+		ws.cell(row=r+3, column=3, value=area).alignment = Alignment(horizontal="right")
 	else:
 		ws.cell(row=r+3, column=3, value='-')
 	
