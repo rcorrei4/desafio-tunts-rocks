@@ -46,15 +46,8 @@ ws.column_dimensions['D'].bestFit = True
 # Add countries to the spreadsheet
 # Use enumerate to get the country and it's index
 for r, country in enumerate(countries):
-	if country.get('name'):
-		ws.cell(row=r+3, column=1, value=country['name']["common"])
-	else:
-		ws.cell(row=r+3, column=1, value='-')
-	
-	if country.get('capital'):
-		ws.cell(row=r+3, column=2, value=country['capital'][0])
-	else:
-		ws.cell(row=r+3, column=2, value='-')
+	ws.cell(row=r+3, column=1, value=country['name']["common"])
+	ws.cell(row=r+3, column=2, value=country.get('capital', '-')[0])
 
 	if country.get('area'):
 		# Format area number to use comma for decimal places and point for thousand separator.
