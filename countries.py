@@ -1,6 +1,4 @@
 import requests
-import locale
-import functools
 from openpyxl import Workbook
 from openpyxl.styles import colors
 from openpyxl.styles import NamedStyle, Font, Alignment
@@ -51,8 +49,7 @@ for r, country in enumerate(countries):
 
 	if country.get('area'):
 		# Format area number to use comma for decimal places and point for thousand separator.
-		locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
-		area = locale.currency(country['area'], grouping=True, symbol=False)
+		area = f"{country['area']:,.2f}".replace(',','temp').replace('.',',').replace('temp','.')
 		ws.cell(row=r+3, column=3, value=area).alignment = Alignment(horizontal="right")
 	else:
 		ws.cell(row=r+3, column=3, value='-')
