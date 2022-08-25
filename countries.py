@@ -36,6 +36,8 @@ ws.cell(2,1, "Name").style = countries_rows_style
 ws.cell(2,2, "Capital").style = countries_rows_style
 ws.cell(2,3, "Area").style = countries_rows_style
 ws.cell(2,4, "Currencies").style = countries_rows_style
+
+# Set a better width for each cell
 ws.column_dimensions['A'].bestFit = True
 ws.column_dimensions['B'].bestFit = True
 ws.column_dimensions['C'].bestFit = True
